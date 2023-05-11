@@ -1,0 +1,65 @@
+const data = {
+  cityId: '1',
+  name: 'New York City',
+  cinemas: [
+    {
+      name: 'Cinema 1',
+      movies: [
+        {
+          name: 'Movie 1',
+          description: 'A thrilling action movie',
+          language: 'English',
+          directorName: 'John Smith',
+          hours: '2:30',
+          releaseDate: new Date('2023-05-01'),
+          castingType: 'ACTION',
+        },
+        {
+          name: 'Movie 2',
+          description: 'A romantic drama',
+          language: 'English',
+          directorName: 'Jane Doe',
+          hours: '2:00',
+          releaseDate: new Date('2023-06-01'),
+          castingType: 'ROMANCE',
+        },
+      ],
+    },
+    {
+      name: 'Cinema 2',
+      movies: [
+        {
+          name: 'Movie 3',
+          description: 'A hilarious comedy',
+          language: 'English',
+          directorName: 'Bob Johnson',
+          hours: '1:45',
+          releaseDate: new Date('2023-07-01'),
+          castingType: 'COMEDY',
+        },
+      ],
+    },
+  ],
+};
+
+const obj = {
+  seats: [
+    { number: 1, row: 'A', identifier: 'A1', type: 'REGULAR' },
+    { number: 2, row: 'A', identifier: 'A2', type: 'REGULAR' },
+    { number: 3, row: 'A', identifier: 'A3', type: 'REGULAR' },
+    { number: 4, row: 'A', identifier: 'A4', type: 'REGULAR' },
+    { number: 5, row: 'A', identifier: 'A5', type: 'REGULAR' },
+
+    { number: 1, row: 'B', identifier: 'B1', type: 'MEDIUM' },
+    { number: 2, row: 'B', identifier: 'B2', type: 'MEDIUM' },
+    { number: 3, row: 'B', identifier: 'B3', type: 'MEDIUM' },
+    { number: 4, row: 'B', identifier: 'B4', type: 'MEDIUM' },
+    { number: 5, row: 'B', identifier: 'B5', type: 'MEDIUM' },
+
+    { number: 1, row: 'C', identifier: 'C1', type: 'PREMIUM' },
+    { number: 2, row: 'C', identifier: 'C2', type: 'PREMIUM' },
+    { number: 3, row: 'C', identifier: 'C3', type: 'PREMIUM' },
+    { number: 4, row: 'C', identifier: 'C4', type: 'PREMIUM' },
+    { number: 5, row: 'C', identifier: 'C5', type: 'PREMIUM' },
+  ],
+};
