@@ -4,7 +4,8 @@
   "description": "A movie ticket booking system provides its customers the ability to purchase theatre seats online. E-ticketing systems allow the customers to browse through movies currently being played and to book seats, anywhere anytime.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "debug": "ndb server.js"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/pavanh007/ticket-master-node/issues"
   },
@@ -20,9 +22,17 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^6.7.0",
+    "helmet": "^6.1.5",
+    "hpp": "^0.2.3",
+    "joi": "^17.9.2",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
+    "ndb": "^1.1.5",
+    "node-uuid": "^1.4.8",
+    "nodemailer": "^6.9.1",
+    "uuid": "^9.0.0",
     "validator": "^13.9.0"
   },
   "devDependencies": {
@@ -34,5 +44,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }

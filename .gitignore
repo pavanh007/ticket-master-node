@@ -60,11 +60,14 @@ typings/
 # dotenv environment variables file
 config.env
 .env.*
+.env
 
 # Transpiled JavaScript files from Typescript
 /dist
 
 # Cache used by TypeScript's incremental build
 *.tsbuildinfo
+
+
 
 
