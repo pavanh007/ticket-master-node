@@ -27,7 +27,7 @@ const Cinema = mongoose.model('Cinema', cinemaSchema);
 export { Cinema };
 
 
-export async function validateCreateCinema(movieData) {
+export async function validateCreateCinema(cinemaData) {
   const cinemaSchema = Joi.object({
     cinemaId: Joi.string().uuid(),
     totalCinemaHalls: Joi.number().integer().required(),
@@ -35,7 +35,7 @@ export async function validateCreateCinema(movieData) {
     cinemaName: Joi.string().trim().min(3).required(),
   });
   try {
-    return cinemaSchema.validate(movieData);
+    return cinemaSchema.validate(cinemaData);
   } catch (error) {
     console.error(error);
   }

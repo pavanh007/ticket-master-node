@@ -19,6 +19,7 @@ const City = mongoose.model('City', citySchema);
 export { City };
 
 
+  
 export function validateCreateLocation(cityData) {
   const schema = Joi.object({
     cityId: Joi.string().uuid({ version: 'uuidv4' }),

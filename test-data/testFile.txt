@@ -1,0 +1,13 @@
+How to book the ticket for particular cinema hall. having there entities and connection: 
+1. show: date, startTime, endTime, cinemaHllId,
+2. Cinema_hall: cinemaHallId, name, totalSeats, cinemaId,
+3. Cinema_seat: cinemaSeatId, seatNumber, type, cinemaHallId
+4. Show_seat: showSeatId, status, price, cinemaSeatId, showId, bookingId,
+5. Booking: BookingId, numberOfSeats, timeStamp, status, userId, showId 
+
+In this, show have one to many relationship with Booking and show_seat.
+In this, Cinema_seat have one to many relationship with Show_seat.
+Then show_seat have many to one relationship with Booking.
+Then Cinema_hall have one to many relationship with Cinema_seat.
+Show have one to one relationship with Cinema_hall
+
