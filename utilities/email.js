@@ -1,6 +1,6 @@
 import { createTransport } from 'nodemailer';
 
-const sendEmail = async (options) => {
+export async function sendEmail(options){
   //1. Create a transporter
 var transport = createTransport({
   host: process.env.EMAIL_HOST,
