@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
-const app = require('./app');
-const dotenv = require('dotenv');
+import mongoose from 'mongoose';
+import app from './app.js';
+import dotenv from 'dotenv';
 
 dotenv.config({ path: './config.env' });
-
 
 //NOTE - connection to DB-URL
 // const DB = process.env.DATABASE.replace(
@@ -24,7 +23,7 @@ mongoose
   .connect('mongodb://127.0.0.1:27017/ticket-master-node', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
+    // useCreateIndex: false,
   })
   .then(() => {
     console.log('MongoDB connection established successfully');
@@ -36,7 +35,7 @@ mongoose
   });
 
 //NOTE - Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 6001;
 const server = app.listen(port, () => {
   console.log(`App listening on port ${port}....`);
 });
