@@ -2,8 +2,25 @@ import catchAsync from './../utilities/catchAsync.js';
 import AppError from '../utilities/appError.js';
 import { Booking, validateBooking } from '../models/bookingModel.js';
 import Show from '../models/showModel.js';
-import ShowSeat from '../models/showSeatModel.js';
+import { ShowSeat } from '../models/showSeatModel.js';
 import sendEmail from '../utilities/email.js';
+
+/*
+NOTE: pseudo-code
+step-1: get booking details,
+step-2: validate booking details,
+step-3: Find show and seats list for AVAILABILITY,
+  If AVAILABIL - check the total price,
+step-4: Add those seats in holding state for 5-minutes wait until the payment get successfull,
+step-5: Make payment done,
+        Add those seats booking DB,
+        Make status to BOOKED,
+step-6: IF Payment is not done
+        Change seats to HOLD to AVAILABLE,
+        Again add those seats to ShowSeat
+step-7: DONE
+*/
+
 
 // REST endpoint to book tickets for a particular cinema hall
 export const bookTickets = catchAsync(async (req, res) => {
@@ -62,7 +79,7 @@ export const bookTickets = catchAsync(async (req, res) => {
 
     // Update the show seat objects with the booking and seat status
     selectedSeats.forEach((selectedSeat) => {
-      selectedSeat.status = 'BLOCKED';
+      selectedSeat.status = 'BOOKED';
       selectedSeat.bookingId = booking._id;
       selectedSeat.save();
     });

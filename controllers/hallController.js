@@ -1,8 +1,8 @@
-import { CinemaHall} from "../models/cinemaHallModel.js";
+import { Hall } from "../models/cinemaHallModel.js";
 import catchAsync from "../utilities/catchAsync.js";
 
 export const createCinemaHall = catchAsync(async (req, res, next) => {
-  const hall = await CinemaHall.create(req.body);
+  const hall = await Hall.create(req.body);
   res.status(201).json({
     status: 'hall created successfully',
     data: {
@@ -12,7 +12,7 @@ export const createCinemaHall = catchAsync(async (req, res, next) => {
 });
 
 export const deleteHall = catchAsync(async (req, res, next) => {
-  const hall = await CinemaHall.findByIdAndDelete(req.params.id);
+  const hall = await Hall.findByIdAndDelete(req.params.id);
   res.status(202).json({
     status: 'hall deleted successfully',
     hall: hall

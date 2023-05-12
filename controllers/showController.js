@@ -1,8 +1,8 @@
 
-import Show, { validateCreateShow } from "../models/showModel";
-import AppError from "../utilities/appError";
-import catchAsync from "../utilities/catchAsync";
-import { filterObj } from "../utilities/updateParams";
+import Show, { validateCreateShow } from "../models/showModel.js";
+import AppError from "../utilities/appError.js";
+import catchAsync from "../utilities/catchAsync.js";
+import { filterObj } from "../utilities/updateParams.js";
 
 export const listOfShowForMovie = catchAsync(async (req, res, next) => {
   const shows = await Show.aggregate([

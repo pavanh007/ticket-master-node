@@ -27,6 +27,4 @@ const showSeatSchema = mongoose.Schema({
   },
 });
 
-const showSeat = mongoose.model('showSeat', showSeatSchema);
-
-export default showSeat;
+export const ShowSeat = mongoose.model('ShowSeat', showSeatSchema);

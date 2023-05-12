@@ -2,8 +2,6 @@ import catchAsync from './../utilities/catchAsync.js';
 import User, { validateCreateUser } from '../models/userModel.js';
 import { filterObj } from '../utilities/updateParams.js';
 
-
-
 export const getAllUsers = catchAsync(async (req, res, next) => {
   const users = await User.find();
   res.status(200).json({

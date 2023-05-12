@@ -15,6 +15,6 @@ const cinemaSeatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const cinemaSeat = mongoose.model('cinemaSeat', cinemaSeatSchema);
+export const CinemaSeat = mongoose.model('CinemaSeat', cinemaSeatSchema);
 
-export default cinemaSeat;
+

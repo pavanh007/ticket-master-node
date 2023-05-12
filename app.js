@@ -1,7 +1,9 @@
 import express from 'express';
 const app = express();
+import xss from 'xss-clean';
 import morgan from 'morgan'; //logger
 import helmet from 'helmet'; //add header to request
+import hpp from 'hpp' //http parameter pollution
 import  mongoSanitize from 'express-mongo-sanitize'; //to remove the sql injection attack
 import rateLimit from 'express-rate-limit'; //limit the request
 import bodyParser from 'body-parser';
@@ -15,8 +17,7 @@ import bookingRouter from './routes/bookingRoutes.js';
 import hallRouter from './routes/hallRoutes.js';
 import cinemaSeatRouter from './routes/cinemaSeatRoutes.js';
 import showSeatRouter from './routes/showSeatRoutes.js';
-
-// import globalErrorHandler from './controllers/errorController.js';
+import {globalErrorHandler} from './controllers/errorController.js';
 
 //NOTE - middleware
 
@@ -30,15 +31,26 @@ app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 
 //Data sanitization against XSS
-// app.use(xss());
+app.use(xss());
+
+//prevent prameter pollution
+app.use(hpp({
+  whiteList: [
+    'novieName',
+    'language',
+    'directorName',
+    'releaseDate',
+    'castingType',
+  ]
+}));
 
 app.use(bodyParser.json());
 
 //Development logging configuration
 if (process.env.NODE_ENV === 'development') {
+  console.log('morgan is Enabled');
   app.use(morgan('tiny'));
 }
-
 //Testting middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -69,8 +81,10 @@ app.use('/v1/show-seat', showSeatRouter);
 app.all('*', (req, res, next) => {
   next(new appError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 export default app;
+
+
 
 
