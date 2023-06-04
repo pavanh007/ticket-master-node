@@ -1,6 +1,7 @@
 import catchAsync from './../utilities/catchAsync.js';
 import User, { validateCreateUser } from '../models/userModel.js';
 import { filterObj } from '../utilities/updateParams.js';
+import jwt from 'jsonwebtoken';
 
 export const getAllUsers = catchAsync(async (req, res, next) => {
   const users = await User.find();
@@ -18,16 +19,6 @@ export const getUser = catchAsync(async (req, res, next) => {
   });
 });
 
-export const createUser = catchAsync(async (req, res, next) => {
-  const userData = req.body;
-  const { error } = await validateCreateUser(userData); // Validate the user input
-   if (error) return res.status(400).send(error.details[0].message);
-  const user = await User.create(userData);
-  res.status(200).json({
-    status: 'success',
-    user: user,
-  });
-});
 export const deletUser = catchAsync(async (req, res, next) => {
   const user = await User.findByIdAndDelete({ _id: req.params.id });
   res.status(200).json({

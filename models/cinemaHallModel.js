@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const cinemaHallSchema = mongoose.Schema({
+const cinemaHallSchema = new mongoose.Schema({
   cinemaHallId: {
     type: String,
     unique: true,

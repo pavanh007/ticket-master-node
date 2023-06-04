@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import mongoose from 'mongoose';
 
-const bookingSchema = mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
   bookingId: {
     type: String,
     unique: true,

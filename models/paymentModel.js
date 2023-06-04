@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const paymentSchema = mongoose.Schema({
+const paymentSchema = new mongoose.Schema({
   paymentId: {
     type: String,
     required: true,
@@ -15,7 +15,7 @@ const paymentSchema = mongoose.Schema({
     default: Date.now(),
   },
   paymentMethod: {
-    type: String
+    type: String,
   },
   bookingId: {
     type: String,

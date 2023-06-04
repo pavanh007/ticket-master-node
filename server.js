@@ -23,7 +23,6 @@ mongoose
   .connect('mongodb://127.0.0.1:27017/ticket-master-node', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useCreateIndex: false,
   })
   .then(() => {
     console.log('MongoDB connection established successfully');

@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import Joi from 'joi';
 import { v4 as uuidv4 } from 'uuid';
 
-const showSchema = mongoose.Schema({
+const showSchema = new mongoose.Schema({
   showId: {
     type: String,
     default: uuidv4(),

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const showSeatSchema = mongoose.Schema({
+const showSeatSchema = new mongoose.Schema({
   showSeatId: {
     type: Number,
     unique: true,
