@@ -1,15 +1,21 @@
 import { Router } from 'express';
 import {
   getAllUsers,
-  createUser,
   getUser,
   updateUser,
   deletUser,
 } from '../controllers/userController.js';
-
+import { login, signUp } from '../controllers/authController.js';
 const router = Router();
 
-router.route('/').get(getAllUsers).post(createUser);
-router.route('/:id').get(getUser).patch(updateUser).delete(deletUser);
+router.post('/signup', signUp);
+router.post('/login', login);
+router.route('/').get(protect, restrict(['admin']), getAllUsers);
+router
+  .route('/:id')
+  .get(protect, restrict(['admin']), getUser)
+  .patch(protect, restrict(['admin', 'user']), updateUser)
+  .delete(protect, restrict(['admin', 'user']), deletUser);
 
 export default router;
+
